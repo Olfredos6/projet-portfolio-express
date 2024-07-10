@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  #home.container.mt-5.pt-5
+    .row
+      .col-md-4
+        .bg-warning.p-3.rounded
+          img.img-fluid(src='https://via.placeholder.com/300', alt='Profile Image')
+      .col-md-8
+        h2 About Me
+        p I'm a passionate web developer with a keen eye for design and a love for creating intuitive user experiences. With years of experience in front-end and back-end technologies, I bring ideas to life through clean, efficient code.
+
+  #skills.container.mt-5
+    h2 Skills & Expertise
+    .row
+      .col-md-4
+        h4 Front-end
+        ul
+          li HTML5, CSS3, JavaScript
+          li React, Vue.js
+          li Bootstrap, Tailwind CSS
+      .col-md-4
+        h4 Back-end
+        ul
+          li Node.js, Express
+          li Python, Django
+          li PHP, Laravel
+      .col-md-4
+        h4 Other
+        ul
+          li Git, GitHub
+          li Docker
+          li AWS, Heroku
+
+  #experience.container.mt-5
+    h2 Experience
+    .row
+      .col-md-12
+        for experience in experiences
+          h4 #{experience.title} - #{experience.company}
+          p.text-muted= experience.period
+          p= experience.description
+
+  #projects.container.mt-5
+    h2 Projects
+    .row
+      for project in projects
+        .col-md-4
+          .card
+            img.card-img-top(src='https://via.placeholder.com/300x200', alt='Project 1')
+            .card-body
+              h5.card-title= project.title
+              p.card-text= project.description
+
+
+  #contact.container.mt-5
+    h2 Contact
+    form
+      .mb-3
+        label.form-label(for='subject') Sujet
+        input#subject.form-control(type='text', placeholder='Entrez le sujet')
+      .mb-3
+        label.form-label(for='message') Message
+        textarea#message.form-control(rows='5', placeholder='Entrez votre message')
+      button.btn.btn-primary(type='submit') Envoyer
